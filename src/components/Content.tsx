@@ -1,4 +1,6 @@
+import { Header } from "./Header";
 import { MovieCard } from "./MovieCard";
+import { AutoSizer, List, ListRowRenderer } from 'react-virtualized'
 
 interface ContentProps {
   selectedGenre: {
@@ -20,12 +22,10 @@ interface ContentProps {
 }
 
 export function Content({ selectedGenre, movies }: ContentProps) {
+
   return (
     <div className="container">
-      <header>
-        <span className="category">Categoria:<span> {selectedGenre.title}</span></span>
-      </header>
-
+      <Header genre={selectedGenre.title} />      
       <main>
         <div className="movies-list">
           {movies.map(movie => (
